@@ -1,0 +1,53 @@
+# Node.js 기본
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 환경 변수 및 설정 파일
+.env
+*.local
+
+# 로그 파일
+logs/
+*.log
+*.pid
+*.seed
+*.pid.lock
+
+# 디버깅 관련
+.idea/
+.vscode/
+.DS_Store
+
+# 운영 관련 파일
+coverage/
+build/
+dist/
+tmp/
+temp/
+
+# 시스템 파일
+Thumbs.db
+ehthumbs.db
+*.swp
+.sass-cache/
+
+# 특정 OS 파일
+*.DS_Store
+*.AppleDouble
+*.LSOverride
+
+# 임시 파일
+*.bak
+*.orig
+*.rej
+*.swo
+
+# 테스트 및 배포 관련
+tests/
+.jest/
+*.tgz
+
+# 프로젝트 빌드 파일
+out/

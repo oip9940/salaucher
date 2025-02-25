@@ -1,0 +1,204 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: "Noto Sans KR", serif;
+    background-color: #f9f9f9;
+    display: flex;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    flex: 3;
+}
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+}
+.header .logo {
+    position: absolute;
+    left: 30px;
+}
+.header .logo img {
+    height: 35px;
+}
+.header .title {
+    font-size: 22px;
+    font-weight: bold;
+    font-family: "Noto Sans KR", serif;
+}
+
+.logout-button {
+    position: absolute;
+    right: 30px; /* 헤더의 오른쪽 끝에 배치 */
+    top: 50%;
+    transform: translateY(-50%); /* 버튼을 수직 중앙 정렬 */
+    padding: 8px 16px;
+    color: #d5d3d3; /* 텍스트 색상 */
+    background: none; /* 배경 제거 */
+    border: none; /* 테두리 제거 */
+    outline: none; /* 클릭 시 외곽선 제거 */
+    cursor: pointer;
+    transition: color 0.2s;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.content {
+    display: flex;
+    width: 100%;
+    margin-top: 30px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding-left: 50px;
+}
+.content p {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+    font-weight:normal;
+    margin: 0;
+    font-family: "Noto Sans KR", serif;
+}
+.main-section {
+    width: 60%;
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+    position: relative;
+    margin-top: 10px; /* 네모 박스와 제목 사이 간격 조정 */
+    border : 2px solid #C5D3E8;
+}
+
+.section-title {
+    display: flex;
+    justify-content: space-between; /* 좌우 배치 */
+    align-items: center;
+    width: 100%;
+    max-width: 60%; /* .main-section과 동일한 너비 */
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.view-all-button {
+    font-size: 14px;
+    color: #888;
+    background: none;
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.view-all-button:hover {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+.subject-list {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    width: 100%;
+    padding: 20px 0;
+}
+.subject-card {
+    width: 180px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+    background: #fff;
+    transition: transform 0.2s;
+}
+.subject-card:hover {
+    transform: translateY(-5px);
+}
+.subject-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.sidebar {
+    width: 200px;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+    border-left: 2px solid #C5D3E8; /* 왼쪽에 선 추가 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+/* 버튼 3개를 감싸는 컨테이너 */
+.menu-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    margin-top: auto;  /* 위쪽 여백 자동 */
+    margin-bottom: auto; /* 아래쪽 여백 자동 (버튼들이 사이드바 중앙에 위치) */
+}
+
+.sidebar .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px; /* 프로필과 버튼 사이 간격 조정 */
+    margin-top:30px;
+}
+.sidebar .profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.sidebar button {
+    width: 150px;
+    padding: 12px;
+    background: #f8f9fa;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    font-weight: bold;
+    font-size:18px;
+}
+
+.sidebar button:hover {
+    background: #e2e6ea;
+    color: #000;
+}
+
+/* 홈 버튼은 사이드바 하단에 배치 */
+.home-button {
+    margin-top: auto; /* 사이드바 아래로 배치 */
+    width: 100%;
+    padding: 12px;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-weight: bold;
+}
+.home-button:hover {
+    background: #0056b3;
+}

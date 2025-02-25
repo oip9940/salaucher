@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사이언스 아티슨 T</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <img src="image/UI_SABISHA_logoSA.png" alt="사이언스 아티슨 T">
+            </div>
+            <div class="title">사이언스 아티슨 T</div>
+            <button class="logout-button">로그아웃</button> <!-- 로그아웃 버튼 추가 -->
+        </div>
+        
+        <div class="content">
+            <div class="section-title">
+                <span>구독 목록</span>
+                <button class="view-all-button">전체보기</button>
+            </div>
+            <div class="main-section">
+                <div class="subject-list">
+                    <div class="subject-card">
+                        <img src="image/썸네일-생명과학-2.png" alt="생물">
+                    </div>
+                    <div class="subject-card">
+                        <img src="image/썸네일-지구-과학-1.png" alt="지구과학">
+                    </div>
+                    <div class="subject-card">
+                        <img src="image/썸네일-화학-3.png" alt="화학">
+                    </div>
+                    <div class="subject-card">
+                        <img src="image/썸네일-물리학-2.png" alt="물리학">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="sidebar">
+        <div class="profile">
+            <img src="image/user.png" alt="프로필 이미지">
+            <span id="user-info">Loading...</span> <!-- 동적으로 사용자 정보 표시 -->
+        </div>
+    
+        <!-- 버튼들을 감싸는 새로운 컨테이너 -->
+        <div class="menu-buttons">
+            <button>구독 목록</button>
+            <button>재생 목록</button>
+            <button>즐겨찾기</button>
+        </div>
+    
+        <button class="home-button">홈</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const token = localStorage.getItem("token");
+    if (!token) {
+        document.getElementById("user-info").innerText = "로그인이 필요합니다.";
+        return;
+    }
+
+    function parseJwt(token) {
+        const base64Url = token.split('.')[1];
+        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        const jsonPayload = JSON.parse(atob(base64));
+        return {
+            ...jsonPayload,
+            school_name: decodeURIComponent(escape(atob(jsonPayload.school_name))), // Base64 디코딩
+            name: decodeURIComponent(escape(atob(jsonPayload.name))) // Base64 디코딩
+        };
+    }
+
+    const payload = parseJwt(token);
+    const schoolName = payload.school_name;
+    const userName = payload.name;
+
+    document.getElementById("user-info").innerText = `${schoolName} ${userName}님`;
+});
+    </script>
+</body>
+</html>
