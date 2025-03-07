@@ -20,6 +20,10 @@ const db = mysql.createPool({
     user: process.env.DB_USER,
     password: process.env.DB_PASS,
     database: process.env.DB_NAME,
+    port: process.env.DB_PORT,
+    ssl: {
+        rejectUnauthorized: true
+    }
 });
 
 // ✅ 기존 비밀번호 해싱 (초기 설정)
@@ -167,7 +171,7 @@ app.post('/api/admin/add-webgl', authMiddleware, async (req, res) => {
 app.use('/webgl-content', express.static(path.join(__dirname, 'public/webgl-content')));
 
 // ✅ 포트 설정 및 서버 실행
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`🚀 Server running on http://localhost:${PORT}`);
 });
